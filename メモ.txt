@@ -1,0 +1,20 @@
+# php artisan make:model で使用するModelファイルを作成します
+# 同時にマイグレーションファイルも作成します
+php artisan make:model -m Post
+
+# SQLite3でDBを作成
+sqlite3 database/database.sqlite
+.tables
+.exit
+
+# マイグレーションファイルの内容をDBに反映します
+php artisan migrate
+
+# 作成したModelを利用したRESTfulなControllerを生成します
+php artisan make:controller PostController --resource --model=Post
+
+# すべてのファイルをステージングする
+git add .
+
+# 「generate model & controller post」というコミットメッセージでコミットする
+git commit -m "generate model & controller post"
