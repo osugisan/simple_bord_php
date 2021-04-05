@@ -1,8 +1,19 @@
-@if (session('message'))
-    {{ session('message') }}
-@endif
+<!-- resources/views/layouts/layouts.blade.phpを使用する -->
+@extends('layouts.layouts')
 
-{{ $post->title }}
-{{ $post->content }}
+<!-- @yield('title')に埋め込むというコード -->
+@section('title', 'Simple Board')
 
-<a href="/post/{{ $post->id }}/edit">Edit</a>
+<!-- @yield('content')に埋め込まれます -->
+@section('content')
+
+    @if (session('message'))
+        {{ session('message') }}
+    @endif
+
+    {{ $post->title }}
+    {{ $post->content }}
+
+    <a href="/post/{{ $post->id }}/edit">Edit</a>
+
+@endsection
