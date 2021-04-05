@@ -21,3 +21,13 @@ git commit -m "generate model & controller post"
 
 ルーティング
 Route::resource(<ルーティングのURL>, <使用するコントローラー>);
+
+・form
+RESTfulなURLでは、/postsのような/[モデル名]のURLにPOSTリクエストでパラメータを送信することで新しいデータを作成します。
+
+またLaravelでは「CSRF」という攻撃方法に対処するための対策がされています。
+{{ csrf_field() }}ではCSRFトークンを生成し、フォームで入力されたパラメータを送信できるようにしています。
+
+
+・compact('post')
+ビューに変数を渡すことができる
