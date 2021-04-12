@@ -9,7 +9,7 @@
         <!-- resources/views/componentsディレクトリ内のheader.blade.phpを呼び出す -->
         @component('components.header')
         @endcomponent
-        <div class="container">
+        <div class="container pt-5 pb-5">
             @yield('content')
         </div>
 
