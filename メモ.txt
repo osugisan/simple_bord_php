@@ -31,3 +31,36 @@ RESTfulなURLでは、/postsのような/[モデル名]のURLにPOSTリクエス
 
 ・compact('post')
 ビューに変数を渡すことができる
+
+
+・バリデーション設置
+
+コントローラーの各アクションに
+
+$request->validate([
+    'title' => 'required|max:255',
+    'content' => 'required',
+]);
+
+
+バリメッセージ表示
+
+各ビューに
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+送信した内容を保持する
+
+oldヘルパー
+
+{{ old('content') === '' ? $post->content : old('content') }}
+
+
